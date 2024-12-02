@@ -1,0 +1,23 @@
+body{
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+.cont{
+    height: 25vh;
+    width: 100%;
+    background-color: #007bff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+}
+.logo{
+    height: 15vh;
+}
+.Header_h2{
+    color: white;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 3rem;
+}
