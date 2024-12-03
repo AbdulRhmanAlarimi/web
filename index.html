@@ -9,6 +9,53 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="header.css">
     <style>
+        .photo-gallery {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            margin: 20px auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            background: #f9f9f9;
+        }
+        .photo-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 1s ease-in-out;
+        }
+                .caption {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px;
+            font-size: 1.2em;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+        }
+        .text-banner {
+            bottom: 0;
+            width: 100%;
+            background-color: #0d6efd;
+            color: white;
+            overflow: hidden;
+        }
+        .text-banner p {
+            white-space: nowrap;
+            display: inline-block;
+            padding: 10px;
+            font-size: 1.2em;
+            animation: marquee 10s linear infinite;
+        }
+        @keyframes marquee {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
         .div0 {
             background-color: #f9f9f9;
             padding: 20px;
@@ -119,8 +166,7 @@
     </style>
 </head>
 <body>
-     <!--Header of the page-->
-     <div class="container-fluid g1 bg-primary text-white p-2">
+    <div class="container-fluid g1 bg-primary text-white p-2">
         <div class="d-flex align-items-center justify-content-between">
             
             <a href="index.html" class="text-white d-flex align-items-center">
@@ -134,6 +180,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="news.html">News</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="funpage.html">Memory Matching Game</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white" href="#" id="pharmacyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -158,11 +207,11 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" href="Feadback.html">Feadback</a>
                 </li>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="calculater.html">carlculater</a>
-            </li>
-            </ul>
+                
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="calculater.html">carlculater</a>
+                </li>
+                </ul>
     
             <div class="d-flex align-items-center">
                 <a href="login.html" class="text-white me-2">
@@ -174,7 +223,6 @@
             </div>
         </div>
     </div>
-        
     <div class="container-fluid p-5 bg-primary text-white text-center" style="height: 200px;" >
         <h1>Home</h1>
     </div>
@@ -192,43 +240,16 @@
     </div>
     <br>
     
-    <div class="c0 container">
-        <div class="row">
-            <div class="col-md-2 col-sm-4 mb-3 c1">
-                <button onclick="window.location.href='AlHarrasi.html'">
-                    <img src="img/medicines.jpg" alt="Medicines">
-                    <span class="p1">Medicines</span>
-                </button>
-            </div>
-            <div class="col-md-2 col-sm-4 mb-3 c1">
-                <button onclick="window.location.href='Alarimi.html'">
-                    <img src="img/dietarySupplements.jpg" alt="Dietary supplements">
-                    <span class="p1">Dietary supplements</span>
-                </button>
-            </div>
-            <div class="col-md-2 col-sm-4 mb-3 c1">
-                <button onclick="window.location.href='AlHarrasi.html'">
-                    <img src="img/feeding_infants.jpg" alt="Health Baby Food & Drinks">
-                    <span class="p1">Health Baby Food & Drinks</span>
-                </button>
-            </div>
-            <div class="col-md-2 col-sm-4 mb-3 c1">
-                <button onclick="window.location.href='AlShamsi.html'">
-                    <img src="img/Personal.png" alt="Personal care products">
-                    <span class="p1">Personal care products</span>
-                </button>
-            </div>
-            <div class="col-md-2 col-sm-4 mb-3 c1">
-                <button onclick="window.location.href='consultations.html'">
-                    <img src="img/Consultations.png" alt="Consultations">
-                    <span class="p1">Consultations</span>
-                </button>
-            </div>
+    <div id="photoGallery" class="photo-gallery">
+        <img id="currentPhoto" src="img/medicines.jpg" alt="Medicines">
+        <div class="caption">
+            <p id="photoCaption">Medicines</p>
         </div>
     </div>
+    
 
     <br>
-    <!--Review cards-->
+    
     <div class="div4">
         <h1>Reviews:</h1>
         <div id="reviewsCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -253,7 +274,7 @@
                     <div class="r">
                         <img src="img/imagesww.jpg" alt="profile" class="profile">
                         <div>
-                            <h5>Khaled</h5>
+                            <h5>Fatima</h5>
                             <div class="stars">
                                 <img src="img/star.jpg" alt="star">
                                 <img src="img/star.jpg" alt="star">
@@ -345,12 +366,54 @@
                 </div>
                 
             </tr>
+            
         <div style="float: right a" >
             <iframe  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3656.37980534945!2d58.174824!3d23.590708!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e8de2c15540870d%3A0x2ce06efa9952a6e!2sSultan%20Qaboos%20University!5e0!3m2!1sen!2sus!4v1731170249248!5m2!1sen!2sus"  width="600"  height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
+    
+    </div>
+    <div class="text-banner">
+        <p id="welcomeMessage"></p>
     </div>
 </div>
+<script>
+    function updateWelcomeMessage() {
+        const companyName = "Cloud Pharmacy";
+        const currentDate = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = currentDate.toLocaleDateString(undefined, options);
+        const formattedTime = currentDate.toLocaleTimeString();
+        document.getElementById("welcomeMessage").innerText = `Welcome to the ${companyName} website! Today is ${formattedDate}, and the time is ${formattedTime}`;
+    }
+    updateWelcomeMessage();
+    setInterval(updateWelcomeMessage, 1000); 
+    const galleryPhotos = [
+    { src: "img/medicines.jpg", caption: "Medicines" },
+    { src: "img/dietarySupplements.jpg", caption: "Dietary Supplements" },
+    { src: "img/feeding_infants.jpg", caption: "Health Baby Food & Drinks" },
+    { src: "img/Personal.png", caption: "Personal Care Products" },
+    { src: "img/Consultations.png", caption: "Consultations" }];
 
+    let currentIndex = 0;
+
+    function rotateGallery() {
+        const photoElement = document.getElementById("currentPhoto");
+        const captionElement = document.getElementById("photoCaption");
+
+        currentIndex = (currentIndex + 1) % galleryPhotos.length;
+        const { src, caption } = galleryPhotos[currentIndex];
+
+        photoElement.style.opacity = 0;
+
+        setTimeout(() => {
+            photoElement.src = src;
+            captionElement.innerText = caption;
+            photoElement.style.opacity = 1;
+        }, 500);
+    }
+
+    setInterval(rotateGallery, 3000);
+</script>
 
 </body>
 </html>
