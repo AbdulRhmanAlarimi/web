@@ -4,7 +4,7 @@ body{
     margin: 0;
 }
 .cont{
-    height: 25vh;
+    height: 30vh;
     width: 100%;
     background-color: #007bff;
     display: flex;
