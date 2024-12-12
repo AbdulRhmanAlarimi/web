@@ -8,6 +8,26 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="news.css">
     <link rel="stylesheet" href="header.css">
+    <style>
+
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .img {
+            height: 100px;
+            width: 100px;
+        }
+        .search-form {
+            margin-bottom: 20px;
+        }
+
+    </style>
 
     
 </head>
@@ -70,7 +90,7 @@
             </div>
         </div>
     </div>
-
+    <!--Title-->
     <div class="container-fluid p-5 bg-primary text-white text-center" style="height: 200px;">
         <h1>News</h1>
     </div>
@@ -129,7 +149,115 @@
                 </div>
             </div>
         </div>
+        <div class="container">
+            <div class="d text-center">
+                <h2 class="e">New Coming Pharmacies:</h2>
+            </div>
+            
+                
+            <!-- Search form for doctors -->
+            <form class="search-form" onsubmit="searchDoctor(); return false;">
+                <input type="text" id="doctorSearch" placeholder="Search for New coming Pharmacies...">
+                <button type="submit">Search</button>
+            </form>
+                
+            <!-- Doctor Table -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Logo</th>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Working Hours</th>
+                        <th>State</th>
+                     </tr>
+                </thead>
+                <tbody id="doctorTableBody"></tbody> <!-- Empty body to be populated by JS -->
+            </table>
+            
+    
+            <script>
+                // Array of doctor objects
+                let doctors = [
+                    {
+                        name: "Bahwan",
+                        Location: "Sur",
+                        email: "xxxx@hotmail.com",
+                        phone: "255 xxxxxxxx",
+                        workingHours: "24/7",
+                        img: "Bahwan.jpg"
+                    },
+                    {
+                        name: "Hashar",
+                        Location: "Muscat",
+                        email: "xxxx@hotmail.com",
+                        phone: "255 xxxxxxxx",
+                        workingHours: "8:00 am - 11:00 pm",
+                        img: "Hasher.jpg"
+                    },
+                    {
+                        name: "Muscat",
+                        Location: "Muscat-Sur-Abri",
+                        email: "xxxx@hotmail.com",
+                        phone: "255 xxxxxxxx",
+                        workingHours: "24-(Saterday&Friday Off)",
+                        img: "MuscatPharmacy.jpg"
+                    }
+                ];
+    
+
+
+                // Function to display doctors in the table
+                function displayDoctors(filteredDoctors = doctors) {
+                    let doctorTableBody = document.getElementById("doctorTableBody");
+                    doctorTableBody.innerHTML = ""; // Clear the table before adding new rows
+    
+                    filteredDoctors.forEach(function(doctor) {
+                        let doctorRow = `
+                            <tr>
+                                <td><img class="img" src="${doctor.img}" alt="${doctor.name}"></td>
+                                <td>${doctor.name}</td>
+                               
+                                <td>${doctor.Location}</td>
+                                <td><a href="mailto:${doctor.email}">${doctor.email}</a></td>
+                                <td>${doctor.phone}</td>
+                                <td>${doctor.workingHours}</td>
+                                <td>
+                                    <a href="">
+                                        <button style="background-color: blue; color: white; border-radius: 9px;">Loading</button>
+                                    </a>
+                                </td>
+                            </tr>
+                        `;
+                        doctorTableBody.innerHTML += doctorRow;
+                    });
+                }
+    
+                // Function to search doctors by name or specialty
+                function searchDoctor() {
+                    let searchTerm = document.getElementById("doctorSearch").value.toLowerCase();
+    
+                    let filteredDoctors = doctors.filter(function(doctor) {
+                        return doctor.name.toLowerCase().includes(searchTerm);
+                    });
+    
+                    // Display filtered doctors
+                    displayDoctors(filteredDoctors);
+                }
+    
+                // Initially display all doctors
+                displayDoctors();
+            </script>
+        </div>
+
     </div>
+
+
+
+
+    <!--Footer-->
     <div class="container-fluid g1 bg-primary text-white p-2">
         <div class="d-flex align-items-center justify-content-between">
                     <div style="float: left;">
